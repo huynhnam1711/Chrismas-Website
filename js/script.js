@@ -6,6 +6,23 @@ searchBtn.onclick = () => {
     searchFrom.classList.toggle('active');
 }
 
+let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.header .navbar');
+
+menu.onclick = () => {
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+    searchBtn.classList.remove('fa-times');
+    searchForm.classList.remove('active');
+}
+
+window.onscroll = () => {
+    searchBtn.classList.remove('fa-times');
+    searchFrom.classList.remove('active');
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+}
+
 
 // day and night
 
@@ -20,6 +37,7 @@ themeBtn.onclick = () => {
         document.body.classList.remove('active');
     }
 }
+
 
 // owl-carousel
 $('.owl-carousel').owlCarousel({

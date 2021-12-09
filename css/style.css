@@ -7,6 +7,7 @@
     --light-color:#666;
     --light-bg:#eee;
     --white-bg:#ccc;
+    --write:#111;
 }
 
 *{
@@ -53,6 +54,7 @@ body.active{
     --white:#333;
     --light-color:#aaa;
     --light-bg:#222;
+    --write:#fff;
 }
 
 .heading{
@@ -265,7 +267,7 @@ body.active{
 
 .about .image{
     flex: 1 1 42rem;
-    padding: 5rem 5rem 0 0;
+    padding: 0 5rem 5rem 0;
 }
 .about .image img {
     width: 100%;
@@ -494,7 +496,52 @@ body.active{
     animation: fadeIn .2s linear backwards .6s;
 }
 
-.message
+.message{
+    background: url(../images/message-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;  /*slide background scroll*/
+    padding: 3rem 2rem;
+}
+
+.message form{
+    margin: 2rem 0;
+    background: var(--white);
+    text-align: center;
+    max-width: 40rem;
+    padding: 2rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    border-radius: 1rem;
+}
+
+.message form h3 {
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.message form .box {
+    width: 100%;
+    padding: 1.5rem 0;
+    margin: .7rem 0;
+    font-size: 1.4rem;
+    color: var(--light-color);
+    border-bottom: .2rem solid var(--black);
+    background: var(--white);
+}
+.message form textarea:focus,
+.message form .box:focus {
+    border-color: var(--red);
+    color: var(--write);
+}
+
+.message form textarea {
+    width: 100%;
+    height: 15rem;
+    resize: none;
+    background: var(--white);
+}
+
 
 
 
@@ -543,11 +590,50 @@ body.active{
     .header #menu-btn{
         display: inline-block;
     }
+
+    .header .navbar{
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border: .2rem 0 .2rem 0 solid var(--black);
+        padding: 0 2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .navbar a{
+        display: block;
+        font-size: 2rem;
+        margin: 2.5rem 1rem;
+    }
+
+    /* animation xoay icons */
+    .header #menu-btn.fa-times{
+        transform: rotate(180deg);
+    }
+
+
 }
 
 @media (max-width:450px){
     html{
         font-size: 50%;
+    }
+
+    .home .slide .content h3 {
+        font-size: 4rem;
+    } 
+
+    .home .slide .content span {
+        font-size: 2.5rem;
+    }
+    .banner .content {
+        margin: 3rem 0;
     }
 
 
